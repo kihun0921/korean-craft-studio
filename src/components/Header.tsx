@@ -48,15 +48,18 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
   };
 
   return (
-    <header className="border-b border-[#E4DCC9] bg-[#F8F5EF]">
-      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 pt-5 sm:flex-row sm:items-end sm:justify-between sm:gap-6 sm:px-6 sm:pt-6 lg:px-8">
-        <p className="pb-1 text-xl font-semibold tracking-[0.2em] text-[#211F1C] sm:pb-4 sm:text-2xl">
+    <header className="bg-[#F8F5EF]">
+      <div className="mx-auto max-w-6xl px-4 py-5 sm:px-6 sm:py-6 lg:px-8">
+        <p className="text-xl font-semibold tracking-[0.2em] text-[#211F1C] sm:text-2xl">
           온결 공방
         </p>
+      </div>
+
+      <div className="border-t border-b border-[#E4DCC9]">
         <div
           role="tablist"
           aria-label="주요 메뉴"
-          className="-mb-px flex w-full sm:w-auto"
+          className="mx-auto flex max-w-6xl px-4 sm:px-6 lg:px-8"
         >
           {TABS.map((tab, index) => {
             const selected = activeTab === tab.key;
@@ -74,7 +77,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
                 tabIndex={selected ? 0 : -1}
                 onClick={() => onTabChange(tab.key)}
                 onKeyDown={(event) => handleKeyDown(event, index)}
-                className={`flex-1 whitespace-nowrap border-b-2 px-3 py-3 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#95704F] sm:flex-none sm:px-5 sm:pb-4 sm:text-base ${
+                className={`whitespace-nowrap border-b-2 px-3 py-3 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#95704F] sm:px-5 sm:text-base ${
                   selected
                     ? "border-[#B08968] font-bold text-[#211F1C]"
                     : "border-transparent font-normal text-[#5B564C] hover:border-[#E4DCC9] hover:text-[#211F1C]"
